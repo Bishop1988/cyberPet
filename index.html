@@ -9,39 +9,104 @@
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         </style>
 
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+    </style>
+
     <script src="script.js" async></script>
+    <script src="diceScript.js" async></script>
     <link rel="stylesheet" href="style.css">
     <title>Cyber Pet</title>
 </head>
 <body>
-    <div class="container">
-        
-        <main class="cyber_wrapper">
-            <header id="Cyber Dawg">
-                <h1>Cyber Pet</h1>
-            </header>
-
-            <div class="background">
-
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,128L55.4,256L110.8,64L166.2,320L221.5,224L276.9,32L332.3,128L387.7,128L443.1,160L498.5,64L553.8,0L609.2,192L664.6,224L720,288L775.4,64L830.8,224L886.2,320L941.5,288L996.9,224L1052.3,32L1107.7,288L1163.1,96L1218.5,288L1273.8,160L1329.2,320L1384.6,288L1440,224L1440,0L1384.6,0L1329.2,0L1273.8,0L1218.5,0L1163.1,0L1107.7,0L1052.3,0L996.9,0L941.5,0L886.2,0L830.8,0L775.4,0L720,0L664.6,0L609.2,0L553.8,0L498.5,0L443.1,0L387.7,0L332.3,0L276.9,0L221.5,0L166.2,0L110.8,0L55.4,0L0,0Z"></path></svg>
-
-                <div class="screen">
-                    <dog class="img">
-                        <img class="dog_img" src="/images/dawg.png" height="150px" alt="dog">
-                    </dog>
+    <div>
+        <main class="container">
+            <section class="cyber_pet-wrapper">
+                <header id="Cyber Dawg">
+                    <h1>Cyber Pet</h1>
+                </header>
+    
+                <div class="background">
+                    <div class="screen-info-wrapper">
+                        <div class="screen">
+                            <div class="img">
+                                <img class="dog_img" src="/images/dawg.png" height="150px" alt="dog">
+                            </div>
+                        </div>
+                        <div class="screen-text">
+                            <h3 class="dog-text"></h3>
+                        </div>
+                    </div>
+                    
+    
+                    <div class="btn_wrap">
+                        
+                        <div class="btn_holder">
+                            <button class="btn" id="drink">1</button>
+                            <p>Drink</p>
+                        </div>
+    
+                        <div class="btn_holder">
+                            <button class="btn" id="feed">2</button>
+                            <p>Feed</p>
+                        </div>
+    
+                        <div class="btn_holder">
+                            <button class="btn" id="play">3</button>
+                            <p>Play</p>
+                        </div>
+                        <div class="btn_holder">
+                            <button class="btn" id="sleep">4</button>
+                            <p>Sleep</p>
+                        </div>
+    
+                        <div class="btn_holder">
+                            <button class="btn" id="walk">5</button>
+                            <p>Walk</p>
+                        </div>
+    
+                        <div class="btn_holder">
+                            <button class="btn" id="speak">6</button>
+                            <p>Speak</p>
+                            <audio src="" autoplay="false" id="woof_Sound"></audio>
+                        </div>
+                    </div>  
                 </div>
-
-                <div class="btn_wrap">
-                <button class="btn">1</button>
-                <button class="btn">2</button>
-                <button class="btn">3</button>
-                 </div>  
+            </section>
 
 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"><path fill="#ffffff" fill-opacity="1" d="M0,128L72,32L144,224L216,160L288,160L360,96L432,288L504,160L576,224L648,32L720,64L792,256L864,32L936,160L1008,96L1080,64L1152,288L1224,32L1296,288L1368,64L1440,64L1440,320L1368,320L1296,320L1224,320L1152,320L1080,320L1008,320L936,320L864,320L792,320L720,320L648,320L576,320L504,320L432,320L360,320L288,320L216,320L144,320L72,320L0,320Z"></path></svg>
-                 </div>
+            <section class="dice_game-wrapper">
+                <div class="container2">
+                    <div id="dice_game">
+                        <header class = "header2">
+                            <h1 class="title">Dice Game</h1>
+                            <h2>Reach <span class="aim">30</span>, to WIN!</h2>
+                            <h2>Roll <span class="aim">1</span>, you LOSE!</h2>
+                        </header>   
+                
+                        <div class="score">
+                        <p>You're Score:<span id="your_score">0</span></p> 
+                        </div>
+                
+                        <div id="dice_img">
+                            <img src="images/dice1.png" alt="dice roll 1" id="diceImage" class="diceImg">
+                        </div>
+                
+                        <p class="instruction"> Click on the button below to start the game</p>
+                        <button id="dice_btn" class="btn2">Roll
+                            <audio src="" id="diceSound" autoplay="false"></audio>
+                        </button>
+                        <button id="restart" style="display: none;" class="btn_restart">Try Again
+                            <audio src="" id="loser" autoplay="false"></audio>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+
+
           
-        
         </main>
             
     </div>
