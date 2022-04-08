@@ -61,7 +61,7 @@ header h1{
 .background{
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: 100%;
     background-color: var(--mainColor);
 
 }
@@ -147,6 +147,14 @@ header h1{
     background-color: var(--mainColor); 
 }
 
+#dice_img{
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+
+}
+
+
 
 .header2{
     margin-bottom: 50px;
@@ -178,13 +186,13 @@ header h1{
     margin-bottom: 10px;
 }
 
-.diceImg{
+.diceImg , .featuresImg{
     margin-left: 5px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     width: 50%;
-    border: 5px solid var(--secondaryColor);
+    border: 3px solid var(--fontColor);
     border-radius: 10%;
     margin-top: 10px;
     
@@ -232,3 +240,8 @@ header h1{
     position: relative;
 
 }
+
+.igSize{
+    max-height: 300px;
+}
+

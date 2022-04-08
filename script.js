@@ -1,6 +1,7 @@
 //declaring elements
 let diceButton = document.getElementById("dice_btn");
 let diceImage = document.getElementById("diceImage");
+let featuresImage = document.getElementById("featuresImg");
 let urScore = document.getElementById("your_score");
 let h1 = document.querySelector(".title")
 let wrapper = document.getElementById("dice_game")
@@ -15,9 +16,17 @@ const buttonSleep = document.querySelector("#sleep")
 const buttonWalk = document.querySelector("#walk")
 const buttonSpeak = document.querySelector("#speak")
 const soundWoof = document.getElementById("woof_Sound")
+const hungryEl = document.querySelector(".hungry")
+const sleepyEl = document.querySelector(".sleepy")
+const happyEl = document.querySelector(".happy")
+const thirstyEl = document.querySelector(".thirsty")
+const boredEl = document.querySelector(".bored")
 var diceRoll = 0
 let isFeed = false
 let isPlay = false
+let isDrink = false
+
+diceButton.style.display = "none"
 
 reload.addEventListener("click", () => {
     window.location.reload()
@@ -28,11 +37,11 @@ reload.addEventListener("click", () => {
 class CyberPet {
     constructor(name) {
         this._name = name
-        this._hungry = 100
-        this._thirsty = 100
-        this._happy = 100
-        this._sleepy = 100
-        this._bored = 100
+        this._hungry = 0
+        this._thirsty = 0
+        this._happy = 0
+        this._sleepy = 0
+        this._bored = 0
     }
     get name() {
         return this._name
@@ -58,72 +67,33 @@ class CyberPet {
     }
 
     feed() {
-        // this._hungry -= 20
-        // this._sleepy -= 10
-        // this._thirsty += 10
-        // this._happy += 10
-        // diceGameFunc()
-        
+        isDrink = false
         isPlay = false
         isFeed = true
+        diceButton.style.display = "block"
+        featuresImage.src = ""
         displayText.innerHTML = "Roll the dice to get food"
         diceButton.innerHTML = "Feed"
-        
-        // if (diceRoll == 1) {
-        //     displayText.innerHTML = `You rolled a ${diceRoll}`
-        // } else if (diceRoll == 2) {
-        //     displayText.innerHTML = `You rolled a ${diceRoll}`
-        // } else if (diceRoll == 3) {
-        //     displayText.innerHTML = `You rolled a ${diceRoll}`
-        // } else if (diceRoll == 4) {
-        //     displayText.innerHTML = `You rolled a ${diceRoll}`
-        // } else if (diceRoll == 5) {
-        //     displayText.innerHTML = `You rolled a ${diceRoll}`
-        // } else if (diceRoll == 6) {
-        //     displayText.innerHTML = `You rolled a ${diceRoll}`
-        // }
     }
 
     drink() {
-        this._thirsty -= 20
-        this._happy += 10
-
-        if (this._thirsty== 80) {
-            displayText.innerHTML = `${this._name} is still thirsty, current thirst level is: ${this._thirsty}`
-        } else if (this._thirsty >= 60) {
-            displayText.innerHTML = `${this._name} is still thirsty, current thirst level is: ${this._thirsty}`
-        } else if (this._thirsty >= 40) {
-            displayText.innerHTML = `${this._name} is still thirsty, current thirst level is: ${this._thirsty}`
-        } else if (this._thirsty >= 20) {
-            displayText.innerHTML = `${this._name} is still thirsty, current thirst level is: ${this._thirsty}`
-        } else if (this._thirsty < 20) {
-            displayText.innerHTML = `${this._name} is hydrated, current thirst level is: ${this._thirsty}`
-        }
+        isPlay = false
+        isFeed = false
+        isDrink = true
+        diceButton.style.display = "block"
+        featuresImage.src = ""
+        displayText.innerHTML = "Roll the dice to play"
+        diceButton.innerHTML = "Drink"
     }
 
     play() {
-        // this._bored -= 20
-        // this._thirsty += 20
-        // this._sleepy += 20
-        // this._hungry += 20
-        // this._happy += 50
-
+        isDrink = false
         isFeed = false
         isPlay = true
+        diceButton.style.display = "block"
+        featuresImage.src = ""
         displayText.innerHTML = "Roll the dice to play"
         diceButton.innerHTML = "Play"
-
-        // if (this._bored >= 80) {
-        //     displayText.innerHTML = `${this._name} is still bored, current boredom level is: ${this._bored}`
-        // } else if (this._bored >= 60) {
-        //     displayText.innerHTML = `${this._name} is still bored, current boredom level is: ${this._bored}`
-        // } else if (this._bored >= 40) {
-        //     displayText.innerHTML = `${this._name} is still bored, current boredom level is: ${this._bored}`
-        // } else if (this._bored >= 20) {
-        //     displayText.innerHTML = `${this._name} is still bored, current boredom level is: ${this._bored}`
-        // } else if (this._bored < 20) {
-        //     displayText.innerHTML = `${this._name} is not bored, current boredom level is: ${this._bored}`
-        // }
     }
 
     sleep() {
@@ -208,63 +178,145 @@ const diceGameFunc = () => {
     if (isFeed == true) {
         if (diceRoll == 1) {
             let chicken = 15
-            pet2._hungry -= chicken
+            pet2._hungry += chicken
+            pet2._thirsty += 5
+            featuresImage.src= './images/chicken.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some chicken. Chicken is worth ${chicken} points. Current hunger level ${pet2._hungry}`
         } else if (diceRoll == 2) {
             let bone = 5
-            pet2._hungry -= bone
+            pet2._hungry += bone
+            pet2._thirsty += 5
+            featuresImage.src= './images/bone.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have a bone. Bone is worth ${bone} points. Current hunger level ${pet2._hungry}`
         } else if (diceRoll == 3) {
             let pizza = 10
-            pet2._hungry -= pizza
+            pet2._hungry += pizza
+            pet2._thirsty += 5
+            featuresImage.src= './images/pizza.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some pizza. Pizza is worth ${pizza} points. Current hunger level ${pet2._hungry}` 
         } else if (diceRoll == 4) {
             let pumpkin = 5
             pet2._hungry = pumpkin
+            pet2._thirsty += 5
+            featuresImage.src= './images/pumpkin.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some pumpkin. Pumpkin is worth ${pumpkin} points. Current hunger level ${pet2._hungry}`
         } else if (diceRoll == 5) {
             let sushi = 15
-            pet2._hungry -= sushi
+            pet2._hungry += sushi
+            pet2._thirsty += 5
+            featuresImage.src= './images/sushi.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some sushi. Sushi is worth ${sushi} points. Current hunger level ${pet2._hungry}`
         } else if (diceRoll == 6) {
             let cake = 25
-            pet2._hungry -= cake
+            pet2._hungry += cake
+            pet2._thirsty += 5
+            featuresImage.src= './images/cake.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some cake. Cake is worth ${cake} points. Current hunger level ${pet2._hungry}`
         }
     } else if (isPlay == true) {
         if (diceRoll == 1) {
             let fetchTheBall = 15
-            pet2._bored -= fetchTheBall
+            pet2._sleepy += 5
+            pet2._happy += 5
+            pet2._thirsty += 5
+            pet2._hungry += 5
+            pet2._bored += fetchTheBall
+            featuresImage.src= './images/tennis.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the ball. Playing with the ball is worth ${fetchTheBall} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 2) {
             let frisbee = 5
-            pet2._bored -= frisbee
+            pet2._sleepy += 5
+            pet2._happy += 5
+            pet2._thirsty += 5
+            pet2._hungry += 5
+            pet2._bored += frisbee
+            featuresImage.src= './images/frisbee.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the frisbee. Playing with the frisbee is worth ${frisbee} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 3) {
             let chewToy = 10
-            pet2._bored -= chewToy
+            pet2._sleepy += 5
+            pet2._happy += 5
+            pet2._thirsty += 5
+            pet2._hungry += 5
+            pet2._bored += chewToy
+            featuresImage.src= './images/bone.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the chewToy. Playing with the chewToy is worth ${chewToy} points. Current bordedom level ${pet2._bored}` 
         } else if (diceRoll == 4) {
             let playWithOtherDog = 5
+            pet2._sleepy += 5
+            pet2._happy += 5
+            pet2._thirsty += 5
+            pet2._hungry += 5
             pet2._bored = playWithOtherDog
+            featuresImage.src= './images/dog.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the other dog. Playing with the dog is worth ${playWithOtherDog} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 5) {
             let hideAndSeek = 15
-            pet2._bored -= hideAndSeek
+            pet2._sleepy += 5
+            pet2._happy += 5
+            pet2._thirsty += 5
+            pet2._hungry += 5
+            pet2._bored += hideAndSeek
+            featuresImage.src= './images/hidenseek.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play hide and seek. Playing hide and seek is worth ${hideAndSeek} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 6) {
             let tugOfWar = 25
-            pet2._bored -= tugOfWar
+            pet2._sleepy += 5
+            pet2._happy += 5
+            pet2._thirsty += 5
+            pet2._hungry += 5
+            pet2._bored += tugOfWar
+            featuresImage.src= './images/tugofwar.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the tug of war. Playing tug of war is worth ${tugOfWar} points. Current bordedom level ${pet2._bored}`
         }
+        
+    } else if (isDrink == true) {
+        if (diceRoll == 1) {
+            let appleJuice = 10            
+            pet2._thirsty += appleJuice
+            featuresImage.src= './images/apple.png'
+            displayText.innerHTML = `You rolled a ${diceRoll} You drink apple juice. Drinking apple juice is worth ${appleJuice} points. Current thirst level ${pet2._thirsty}`
+        } else if (diceRoll == 2) {
+            let orangeJuice = 15
+            pet2._thirsty += orangeJuice
+            featuresImage.src= './images/orange.png'
+            displayText.innerHTML = `You rolled a ${diceRoll} You drink orange juice. Drinking orange juice is worth ${orangeJuice} points. Current thirst level ${pet2._thirsty}`
+        } else if (diceRoll == 3) {
+            let cocktail = 5
+            pet2._sleepy += 5
+            pet2._thirsty += cocktail
+            featuresImage.src= './images/cocktail.png'
+            displayText.innerHTML = `You rolled a ${diceRoll} You drink a cocktail. Drinking a cocktail is worth ${cocktail} points. Current thirst level ${pet2._thirsty}` 
+        } else if (diceRoll == 4) {
+            let coke = 5
+            pet2._thirsty = coke
+            featuresImage.src= './images/coke.png'
+            displayText.innerHTML = `You rolled a ${diceRoll} You drink a coke. Drinking a coke is worth ${coke} points. Current thirst level ${pet2._thirsty}`
+        } else if (diceRoll == 5) {
+            let water = 15
+            pet2._thirsty += water
+            featuresImage.src= './images/water.png'
+            displayText.innerHTML = `You rolled a ${diceRoll} You drink a water. Drinking a water is worth ${water} points. Current thirst level ${pet2._thirsty}`
+        } else if (diceRoll == 6) {
+            let smoothie = 25
+            pet2._thirsty += smoothie
+            featuresImage.src= './images/smoothie.png'
+            displayText.innerHTML = `You rolled a ${diceRoll} You drink a smoothie. Drinking a smoothie is worth ${smoothie} points. Current thirst level ${pet2._thirsty}`
+        }
+      
     }
+    hungryEl.innerHTML = `Hungry: ${pet2._hungry}`
+    sleepyEl.innerHTML = `Sleepy: ${pet2._sleepy}`
+    happyEl.innerHTML = `Happy: ${pet2._happy}`
+    thirstyEl.innerHTML = `Thirsty: ${pet2._thirsty}`
+    boredEl.innerHTML = `Bored: ${pet2._bored}`
 }
+
+
 
 diceButton.addEventListener("click", () => { //added click event to button
     diceGameFunc()
 });
-
-
 
 //eventlistener
 buttonPlay.addEventListener("click", () => {
@@ -281,13 +333,19 @@ buttonDrink.addEventListener("click", () => {
 
 buttonSleep.addEventListener("click", () => {
     pet2.sleep()
+    diceButton.style.display = "none"
+    featuresImage.src= ''
 })
 
 buttonWalk.addEventListener("click", () => {
     pet2.walkies()
+    featuresImage.src= ''
+    diceButton.style.display = "none"
 })
 
 buttonSpeak.addEventListener("click", () => {
     pet2.speak()
+    featuresImage.src= ''
+    diceButton.style.display = "none"
     soundWoof.src = "sound/single-dog-woof-sound.mp3"
 })
