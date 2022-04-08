@@ -27,7 +27,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;    
-    background-color: var(--mainDiceColor);
+   
 }
 
 .cyber_pet-wrapper {
@@ -42,8 +42,15 @@ body{
     height: 900px;
 }
 
+#cyber_Dawg{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
 header h1{
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     text-decoration: underline dashed;
     word-spacing: -20px;
@@ -54,7 +61,6 @@ header h1{
 .background{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     height: 80%;
     background-color: var(--mainColor);
 
@@ -131,16 +137,13 @@ header h1{
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    height: 100%;
-
     font-family: 'Press Start 2P', cursive;}
 
 
 #dice_game{
     border: 5px solid #ffffff;
-    border-radius: 50px;
+    
     padding: 10px;
-    margin: 10px;
     background-color: var(--mainColor); 
 }
 
@@ -151,7 +154,7 @@ header h1{
 .title {
     font-size: 3.5rem;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: underline dashed;
     font-family: 'Press Start 2P', cursive;
     margin: 5px;
 }
@@ -198,11 +201,11 @@ header h1{
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    
+    font-family: 'Press Start 2P', cursive;
     padding: 5px 20px 5px 20px;
     border-radius: 10px;
-    background-color: var(--thirdDiceColor);
-    border:5px solid var(--secondaryDiceColor);
+    background-color: var(--secondaryColor);
+    border:5px solid var(--secondaryColor);
     cursor: pointer;
 
 }
