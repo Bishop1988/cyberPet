@@ -78,7 +78,7 @@ class CyberPet {
         isPlay = false
         isFeed = true
         diceButton.style.display = "block"
-        featuresImage.src = "/images/sc.png"
+        featuresImage.src = "images/sc.png"
         displayText.innerHTML = "Roll the dice to get food"
         diceButton.innerHTML = "Feed"
     }
@@ -88,7 +88,7 @@ class CyberPet {
         isFeed = false
         isDrink = true
         diceButton.style.display = "block"
-        featuresImage.src = "/images/sc.png"
+        featuresImage.src = "images/sc.png"
         displayText.innerHTML = "Roll the dice to play"
         diceButton.innerHTML = "Drink"
     }
@@ -98,7 +98,7 @@ class CyberPet {
         isFeed = false
         isPlay = true
         diceButton.style.display = "block"
-        featuresImage.src = "/images/sc.png"
+        featuresImage.src = "images/sc.png"
         displayText.innerHTML = "Roll the dice to play"
         diceButton.innerHTML = "Play"
     }
