@@ -201,7 +201,7 @@ const gameOver = () => {
     textSleep.style.display = "none" 
     textWalk.style.display = "none" 
     textSpeak.style.display = "none" 
-    featuresImage.src = "/images/sc.png"
+    featuresImage.src = "images/sc.png"
     displayText.innerHTML = "YOU DIED, CLICK PLAY AGAIN TO RESTART"
     diceButton.style.display = "none"
     btnRestart.style.display = "block"
@@ -229,31 +229,31 @@ const diceGameFunc = () => {
             let chicken = 15
             pet2._hungry += chicken
             pet2._thirsty += 5
-            featuresImage.src= './images/chicken.png'
+            featuresImage.src= 'images/chicken.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some chicken. Chicken is worth ${chicken} points. Current hunger level ${pet2._hungry}`
         } else if (diceRoll == 2) {
             let bone = 5
             pet2._hungry += bone
             pet2._thirsty += 5
-            featuresImage.src= './images/bone.png'
+            featuresImage.src= 'images/bone.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have a bone. Bone is worth ${bone} points. Current hunger level ${pet2._hungry}`
         } else if (diceRoll == 3) {
             let pizza = 10
             pet2._hungry += pizza
             pet2._thirsty += 5
-            featuresImage.src= './images/pizza.png'
+            featuresImage.src= 'images/pizza.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some pizza. Pizza is worth ${pizza} points. Current hunger level ${pet2._hungry}` 
         } else if (diceRoll == 4) {
             let pumpkin = 5
             pet2._hungry = pumpkin
             pet2._thirsty += 5
-            featuresImage.src= './images/pumpkin.png'
+            featuresImage.src= 'images/pumpkin.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some pumpkin. Pumpkin is worth ${pumpkin} points. Current hunger level ${pet2._hungry}`
         } else if (diceRoll == 5) {
             let sushi = 15
             pet2._hungry += sushi
             pet2._thirsty += 5
-            featuresImage.src= './images/sushi.png'
+            featuresImage.src= 'images/sushi.png'
             displayText.innerHTML = `You rolled a ${diceRoll} Have some sushi. Sushi is worth ${sushi} points. Current hunger level ${pet2._hungry}`
         } else if (diceRoll == 6) {
             let cake = 25
@@ -270,7 +270,7 @@ const diceGameFunc = () => {
             pet2._thirsty -= 5
             pet2._hungry -= 5
             pet2._bored += fetchTheBall
-            featuresImage.src= './images/tennis.png'
+            featuresImage.src= 'images/tennis.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the ball. Playing with the ball is worth ${fetchTheBall} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 2) {
             let frisbee = 5
@@ -279,7 +279,7 @@ const diceGameFunc = () => {
             pet2._thirsty -= 5
             pet2._hungry -= 5
             pet2._bored += frisbee
-            featuresImage.src= './images/frisbee.png'
+            featuresImage.src= 'images/frisbee.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the frisbee. Playing with the frisbee is worth ${frisbee} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 3) {
             let chewToy = 10
