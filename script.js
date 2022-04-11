@@ -131,15 +131,10 @@ class Dog extends CyberPet {
     constructor(name) {
         super(name)
         this._bark = "Woof"
-        this._walk = 0
     }
     
     get bark() {
         return this._bark
-    }
-
-    get walk() {
-        return this._walk
     }
 
     speak() {
@@ -148,23 +143,23 @@ class Dog extends CyberPet {
 
     walkies() {
 
-        if (this._walk >= 100) {
-            displayText.innerHTML = `${this._name} has been walked but is tired, current energy level is: ${this._walk}. ${this._name} needs to rest`
-        } else if (this._walk >= 80) {
-            this._walk += 10
-            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
-        } else if (this._walk >= 60) {
-            this._walk += 10
-            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
-        } else if (this._walk >= 40) {
-            this._walk += 10
-            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
-        } else if (this._walk >= 20) {
-            this._walk += 10
-            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
-        } else if (this._walk >= 0) {
-            this._walk += 10
-            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
+        if (this._happy >= 100) {
+            displayText.innerHTML = `${this._name} has been walked but is tired, current energy level is: ${this._happy}. ${this._name} needs to rest`
+        } else if (this._happy >= 80) {
+            this._happy += 10
+            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._happy}`
+        } else if (this._happy >= 60) {
+            this._happy += 10
+            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._happy}`
+        } else if (this._happy >= 40) {
+            this._happy += 10
+            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._happy}`
+        } else if (this._happy >= 20) {
+            this._happy += 10
+            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._happy}`
+        } else if (this._happy >= 0) {
+            this._happy += 10
+            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._happy}`
         }
     }
 }
@@ -360,6 +355,7 @@ const diceGameFunc = () => {
     thirstyEl.innerHTML = `Thirsty: ${pet2._thirsty}`
     boredEl.innerHTML = `Bored: ${pet2._bored}`
 
+
     if (pet2._sleepy <= 0) {
         gameOver()
     } else if (pet2._bored <= 0) {
@@ -396,12 +392,22 @@ buttonSleep.addEventListener("click", () => {
     pet2.sleep()
     diceButton.style.display = "none"
     featuresImage.src= 'images/sc.png'
+    hungryEl.innerHTML = `Hungry: ${pet2._hungry}`
+    sleepyEl.innerHTML = `Sleepy: ${pet2._sleepy}`
+    happyEl.innerHTML = `Happy: ${pet2._happy}`
+    thirstyEl.innerHTML = `Thirsty: ${pet2._thirsty}`
+    boredEl.innerHTML = `Bored: ${pet2._bored}`
 })
 
 buttonWalk.addEventListener("click", () => {
     pet2.walkies()
     featuresImage.src= 'images/sc.png'
     diceButton.style.display = "none"
+    hungryEl.innerHTML = `Hungry: ${pet2._hungry}`
+    sleepyEl.innerHTML = `Sleepy: ${pet2._sleepy}`
+    happyEl.innerHTML = `Happy: ${pet2._happy}`
+    thirstyEl.innerHTML = `Thirsty: ${pet2._thirsty}`
+    boredEl.innerHTML = `Bored: ${pet2._bored}`
 })
 
 buttonSpeak.addEventListener("click", () => {
