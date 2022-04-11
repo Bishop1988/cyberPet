@@ -288,7 +288,7 @@ const diceGameFunc = () => {
             pet2._thirsty -= 5
             pet2._hungry -= 5
             pet2._bored += chewToy
-            featuresImage.src= './images/bone.png'
+            featuresImage.src= 'images/bone.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the chewToy. Playing with the chewToy is worth ${chewToy} points. Current bordedom level ${pet2._bored}` 
         } else if (diceRoll == 4) {
             let playWithOtherDog = 5
@@ -297,7 +297,7 @@ const diceGameFunc = () => {
             pet2._thirsty -= 5
             pet2._hungry -= 5
             pet2._bored = playWithOtherDog
-            featuresImage.src= './images/dog.png'
+            featuresImage.src= 'images/dog.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the other dog. Playing with the dog is worth ${playWithOtherDog} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 5) {
             let hideAndSeek = 15
@@ -315,7 +315,7 @@ const diceGameFunc = () => {
             pet2._thirsty -= 5
             pet2._hungry -= 5
             pet2._bored += tugOfWar
-            featuresImage.src= './images/tugofwar.png'
+            featuresImage.src= 'images/tugofwar.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the tug of war. Playing tug of war is worth ${tugOfWar} points. Current bordedom level ${pet2._bored}`
         }
         
@@ -323,33 +323,33 @@ const diceGameFunc = () => {
         if (diceRoll == 1) {
             let appleJuice = 10            
             pet2._thirsty += appleJuice
-            featuresImage.src= './images/apple.png'
+            featuresImage.src= 'images/apple.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You drink apple juice. Drinking apple juice is worth ${appleJuice} points. Current thirst level ${pet2._thirsty}`
         } else if (diceRoll == 2) {
             let orangeJuice = 15
             pet2._thirsty += orangeJuice
-            featuresImage.src= './images/orange.png'
+            featuresImage.src= 'images/orange.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You drink orange juice. Drinking orange juice is worth ${orangeJuice} points. Current thirst level ${pet2._thirsty}`
         } else if (diceRoll == 3) {
             let cocktail = 5
             pet2._sleepy += 5
             pet2._thirsty += cocktail
-            featuresImage.src= './images/cocktail.png'
+            featuresImage.src= 'images/cocktail.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You drink a cocktail. Drinking a cocktail is worth ${cocktail} points. Current thirst level ${pet2._thirsty}` 
         } else if (diceRoll == 4) {
             let coke = 5
             pet2._thirsty = coke
-            featuresImage.src= './images/coke.png'
+            featuresImage.src= 'images/coke.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You drink a coke. Drinking a coke is worth ${coke} points. Current thirst level ${pet2._thirsty}`
         } else if (diceRoll == 5) {
             let water = 15
             pet2._thirsty += water
-            featuresImage.src= './images/water.png'
+            featuresImage.src= 'images/water.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You drink a water. Drinking a water is worth ${water} points. Current thirst level ${pet2._thirsty}`
         } else if (diceRoll == 6) {
             let smoothie = 25
             pet2._thirsty += smoothie
-            featuresImage.src= './images/smoothie.png'
+            featuresImage.src= 'images/smoothie.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You drink a smoothie. Drinking a smoothie is worth ${smoothie} points. Current thirst level ${pet2._thirsty}`
         }
       
@@ -395,18 +395,18 @@ buttonDrink.addEventListener("click", () => {
 buttonSleep.addEventListener("click", () => {
     pet2.sleep()
     diceButton.style.display = "none"
-    featuresImage.src= './images/sc.png'
+    featuresImage.src= 'images/sc.png'
 })
 
 buttonWalk.addEventListener("click", () => {
     pet2.walkies()
-    featuresImage.src= './images/sc.png'
+    featuresImage.src= 'images/sc.png'
     diceButton.style.display = "none"
 })
 
 buttonSpeak.addEventListener("click", () => {
     pet2.speak()
-    featuresImage.src= './images/sc.png'
+    featuresImage.src= 'images/sc.png'
     diceButton.style.display = "none"
     soundWoof.src = "sound/single-dog-woof-sound.mp3"
 })
