@@ -31,15 +31,16 @@ body{
 }
 
 .cyber_pet-wrapper {
-    border: 2px solid red;
+   
     width: 50%;
     height: 900px;
 }
 
 .dice_game-wrapper {
-    border: 2px solid pink;
+   
     width: 50%;
     height: 900px;
+    
 }
 
 #cyber_Dawg{
@@ -71,6 +72,7 @@ header h1{
     display: flex;
     justify-content: space-around;
     font-size: 1.1rem;
+    margin-top: 100px;
 }
 
 .screen{
@@ -125,6 +127,20 @@ header h1{
 }
 
 
+.stats-wrapper{
+    margin-left: 3.5%;
+    padding-left: 10px;
+}
+
+.stats-wrapper ul{
+    list-style:    none;
+    margin-top: 20px;
+}
+
+.stats-wrapper ul li{
+    padding-top: 15px;
+}
+
 /* 
 .dog-text{
     width: 300px;
@@ -137,12 +153,15 @@ header h1{
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    font-family: 'Press Start 2P', cursive;}
+    font-family: 'Press Start 2P', cursive;
+    height: 100%;
+
+}
 
 
 #dice_game{
     border: 5px solid #ffffff;
-    
+    width: 100%;
     padding: 10px;
     background-color: var(--mainColor); 
 }
@@ -191,10 +210,11 @@ header h1{
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    width: 50%;
     border: 3px solid var(--fontColor);
     border-radius: 10%;
     margin-top: 10px;
+    height: 300px;
+    width: 300px;
     
 }
 
