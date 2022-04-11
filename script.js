@@ -1,5 +1,6 @@
 //declaring elements
 let diceButton = document.getElementById("dice_btn");
+let btnRestart = document.querySelector(".btn_restart");
 let diceImage = document.getElementById("diceImage");
 let featuresImage = document.getElementById("featuresImg");
 let urScore = document.getElementById("your_score");
@@ -15,6 +16,12 @@ const buttonDrink = document.querySelector("#drink")
 const buttonSleep = document.querySelector("#sleep")
 const buttonWalk = document.querySelector("#walk")
 const buttonSpeak = document.querySelector("#speak")
+const textPlay = document.querySelector(".text-play")
+const textFeed = document.querySelector(".text-feed")
+const textDrink = document.querySelector(".text-drink")
+const textSleep = document.querySelector(".text-sleep")
+const textWalk = document.querySelector(".text-walk")
+const textSpeak = document.querySelector(".text-speak")
 const soundWoof = document.getElementById("woof_Sound")
 const hungryEl = document.querySelector(".hungry")
 const sleepyEl = document.querySelector(".sleepy")
@@ -37,11 +44,11 @@ reload.addEventListener("click", () => {
 class CyberPet {
     constructor(name) {
         this._name = name
-        this._hungry = 0
-        this._thirsty = 0
-        this._happy = 0
-        this._sleepy = 0
-        this._bored = 0
+        this._hungry = 50
+        this._thirsty = 50
+        this._happy = 50
+        this._sleepy = 50
+        this._bored = 50
     }
     get name() {
         return this._name
@@ -71,7 +78,7 @@ class CyberPet {
         isPlay = false
         isFeed = true
         diceButton.style.display = "block"
-        featuresImage.src = ""
+        featuresImage.src = "/images/sc.png"
         displayText.innerHTML = "Roll the dice to get food"
         diceButton.innerHTML = "Feed"
     }
@@ -81,7 +88,7 @@ class CyberPet {
         isFeed = false
         isDrink = true
         diceButton.style.display = "block"
-        featuresImage.src = ""
+        featuresImage.src = "/images/sc.png"
         displayText.innerHTML = "Roll the dice to play"
         diceButton.innerHTML = "Drink"
     }
@@ -91,26 +98,29 @@ class CyberPet {
         isFeed = false
         isPlay = true
         diceButton.style.display = "block"
-        featuresImage.src = ""
+        featuresImage.src = "/images/sc.png"
         displayText.innerHTML = "Roll the dice to play"
         diceButton.innerHTML = "Play"
     }
 
     sleep() {
-        this._sleepy -= 50
-        this._happy += 50
-        this._hungry += 20
-
-        if (this._sleepy >= 80) {
+        if (this._sleepy >= 100) {
+            displayText.innerHTML = `${this._name} has fully rested, current sleep level is: ${this._sleepy}`
+        } else if (this._sleepy >= 80) {
+            this._sleepy += 10
             displayText.innerHTML = `${this._name} is still sleepy, current sleep level is: ${this._sleepy}`
         } else if (this._sleepy >= 60) {
+            this._sleepy += 10
             displayText.innerHTML = `${this._name} is still sleepy, current sleep level is: ${this._sleepy}`
         } else if (this._sleepy >= 40) {
+            this._sleepy += 10
             displayText.innerHTML = `${this._name} is still sleepy, current sleep level is: ${this._sleepy}`
         } else if (this._sleepy >= 20) {
+            this._sleepy += 10
             displayText.innerHTML = `${this._name} is still sleepy, current sleep level is: ${this._sleepy}`
-        } else if (this._sleepy < 20) {
-            displayText.innerHTML = `${this._name} is rested, current sleep level is: ${this._sleepy}`
+        } else if (this._sleepy >= 0) {
+            this._sleepy += 10
+            displayText.innerHTML = `${this._name} is still sleepy, current sleep level is: ${this._sleepy}`
         }
     }
 }
@@ -121,7 +131,7 @@ class Dog extends CyberPet {
     constructor(name) {
         super(name)
         this._bark = "Woof"
-        this._walk = 100
+        this._walk = 0
     }
     
     get bark() {
@@ -137,20 +147,28 @@ class Dog extends CyberPet {
     }
 
     walkies() {
-        this._walk -= 20
-        if (this._walk >= 80) {
+
+        if (this._walk >= 100) {
+            displayText.innerHTML = `${this._name} has been walked but is tired, current energy level is: ${this._walk}. ${this._name} needs to rest`
+        } else if (this._walk >= 80) {
+            this._walk += 10
             displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
         } else if (this._walk >= 60) {
+            this._walk += 10
             displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
         } else if (this._walk >= 40) {
+            this._walk += 10
             displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
         } else if (this._walk >= 20) {
+            this._walk += 10
             displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
-        } else if (this._walk < 20) {
-            displayText.innerHTML = `${this._name} has been walked but is tired, current energy level is: ${this._walk}. ${this._name} needs to rest`
+        } else if (this._walk >= 0) {
+            this._walk += 10
+            displayText.innerHTML = `${this._name} has been walked but is still restless, current energy level is: ${this._walk}`
         }
     }
 }
+
 
 let pet2 = new Dog("pet 2")
 
@@ -164,6 +182,37 @@ const sixImgs = {
     6:"images/dice6.png",
 };
 
+const gameOver = () => {
+    // sleepyEl.innerHTML = `Sleepy: ${pet2._sleepy} Your pet has died`
+    hungryEl.style.display = "none"
+    sleepyEl.style.display = "none"
+    happyEl.style.display = "none"
+    thirstyEl.style.display = "none"
+    boredEl.style.display = "none"
+    buttonPlay.style.display = "none"
+    buttonFeed.style.display = "none"
+    buttonDrink.style.display = "none" 
+    buttonSleep.style.display = "none" 
+    buttonWalk.style.display = "none"
+    buttonSpeak.style.display = "none" 
+    textPlay.style.display = "none" 
+    textFeed.style.display = "none" 
+    textDrink.style.display = "none" 
+    textSleep.style.display = "none" 
+    textWalk.style.display = "none" 
+    textSpeak.style.display = "none" 
+    featuresImage.src = "/images/sc.png"
+    displayText.innerHTML = "YOU DIED, CLICK PLAY AGAIN TO RESTART"
+    diceButton.style.display = "none"
+    btnRestart.style.display = "block"
+    btnRestart.style.color = "black"
+    btnRestart.style.backgroundColor = "red"
+    btnRestart.style.fontFamily = " Press Start 2P', cursive";
+    btnRestart.style.fontWeight = "900"
+    btnRestart.style.fontSize = "1.2rem"
+
+}
+
 const diceGameFunc = () => {
     diceRoll = Math.floor(Math.random() *6 + 1); //will generate random numbers between 1-6
     diceImage.src = sixImgs[diceRoll]; //targeted "diceImage" src attribute , allowing me to return the value src attributes of the images inside the id = diceImage & then assigning diceRoll to the object sixImgs
@@ -174,7 +223,7 @@ const diceGameFunc = () => {
     urScore.style.fontSize = "1.9rem";//style element
     diceSound.src = "sound/roll.wav";//dice sound
 
-    console.log(diceRoll)
+    // console.log(diceRoll)
     if (isFeed == true) {
         if (diceRoll == 1) {
             let chicken = 15
@@ -216,55 +265,55 @@ const diceGameFunc = () => {
     } else if (isPlay == true) {
         if (diceRoll == 1) {
             let fetchTheBall = 15
-            pet2._sleepy += 5
+            pet2._sleepy -= 5
             pet2._happy += 5
-            pet2._thirsty += 5
-            pet2._hungry += 5
+            pet2._thirsty -= 5
+            pet2._hungry -= 5
             pet2._bored += fetchTheBall
             featuresImage.src= './images/tennis.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the ball. Playing with the ball is worth ${fetchTheBall} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 2) {
             let frisbee = 5
-            pet2._sleepy += 5
+            pet2._sleepy -= 5
             pet2._happy += 5
-            pet2._thirsty += 5
-            pet2._hungry += 5
+            pet2._thirsty -= 5
+            pet2._hungry -= 5
             pet2._bored += frisbee
             featuresImage.src= './images/frisbee.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the frisbee. Playing with the frisbee is worth ${frisbee} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 3) {
             let chewToy = 10
-            pet2._sleepy += 5
+            pet2._sleepy -= 5
             pet2._happy += 5
-            pet2._thirsty += 5
-            pet2._hungry += 5
+            pet2._thirsty -= 5
+            pet2._hungry -= 5
             pet2._bored += chewToy
             featuresImage.src= './images/bone.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the chewToy. Playing with the chewToy is worth ${chewToy} points. Current bordedom level ${pet2._bored}` 
         } else if (diceRoll == 4) {
             let playWithOtherDog = 5
-            pet2._sleepy += 5
+            pet2._sleepy -= 5
             pet2._happy += 5
-            pet2._thirsty += 5
-            pet2._hungry += 5
+            pet2._thirsty -= 5
+            pet2._hungry -= 5
             pet2._bored = playWithOtherDog
             featuresImage.src= './images/dog.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the other dog. Playing with the dog is worth ${playWithOtherDog} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 5) {
             let hideAndSeek = 15
-            pet2._sleepy += 5
+            pet2._sleepy -= 5
             pet2._happy += 5
-            pet2._thirsty += 5
-            pet2._hungry += 5
+            pet2._thirsty -= 5
+            pet2._hungry -= 5
             pet2._bored += hideAndSeek
             featuresImage.src= './images/hidenseek.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play hide and seek. Playing hide and seek is worth ${hideAndSeek} points. Current bordedom level ${pet2._bored}`
         } else if (diceRoll == 6) {
             let tugOfWar = 25
-            pet2._sleepy += 5
+            pet2._sleepy -= 5
             pet2._happy += 5
-            pet2._thirsty += 5
-            pet2._hungry += 5
+            pet2._thirsty -= 5
+            pet2._hungry -= 5
             pet2._bored += tugOfWar
             featuresImage.src= './images/tugofwar.png'
             displayText.innerHTML = `You rolled a ${diceRoll} You play with the tug of war. Playing tug of war is worth ${tugOfWar} points. Current bordedom level ${pet2._bored}`
@@ -310,6 +359,18 @@ const diceGameFunc = () => {
     happyEl.innerHTML = `Happy: ${pet2._happy}`
     thirstyEl.innerHTML = `Thirsty: ${pet2._thirsty}`
     boredEl.innerHTML = `Bored: ${pet2._bored}`
+
+    if (pet2._sleepy <= 0) {
+        gameOver()
+    } else if (pet2._bored <= 0) {
+        gameOver()
+    } else if (pet2._thirsty <= 0) {
+        gameOver()
+    } else if (pet2._happy <= 0) {
+        gameOver()
+    } else if (pet2._hungry <= 0) {
+        gameOver()
+    }
 }
 
 
@@ -334,18 +395,18 @@ buttonDrink.addEventListener("click", () => {
 buttonSleep.addEventListener("click", () => {
     pet2.sleep()
     diceButton.style.display = "none"
-    featuresImage.src= ''
+    featuresImage.src= './images/sc.png'
 })
 
 buttonWalk.addEventListener("click", () => {
     pet2.walkies()
-    featuresImage.src= ''
+    featuresImage.src= './images/sc.png'
     diceButton.style.display = "none"
 })
 
 buttonSpeak.addEventListener("click", () => {
     pet2.speak()
-    featuresImage.src= ''
+    featuresImage.src= './images/sc.png'
     diceButton.style.display = "none"
     soundWoof.src = "sound/single-dog-woof-sound.mp3"
 })
